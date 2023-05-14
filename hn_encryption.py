@@ -9,10 +9,8 @@ def debug(*args,**kwargs): print(*args,file=sys.stderr,**kwargs)
 
 # Exceptions (our guy refused to do some haha)
 class WrongPassword(Exception):
-    print('WRONG PASSWORD')
     pass
 class PasswordRequired(Exception):
-    print('PASSWORD REQUIRED')
     pass
 
 
