@@ -1,0 +1,36 @@
+!! WARNING: IT CANNOT ENCRYPT IMAGES OR ANYTHING WITH UNKNOWN UNICODE -- BE WARNED !!
+DECTools v. 1.0
+
+DecEnc:
+DecEnc is just a module you use. The end...
+If you want to use that instead of DECTools, use this command guide.
+=======================DECENC COMMANDS GUIDE=============================
+I. Decypher (decrupting files)
+There is 2 modes for decypher though:
+1. BRUTEFORCE
+2. Classic (password or without)
+to do bruteforce, use this:
+---
+py -3 -m decenc decypher [ENCRYPTED FILE] --brute
+---
+Classic ones:
+---
+# Solve given password, output to kenobi.txt
+python decenc.py decypher kenobi.dec <redacted> -o kenobi
+cat kenobi.dec | python decenc.py decypher - <redacted> -o kenobi
+
+# Decrypt a double layer encrypted file with no password
+py -3 -m decenc.py decypher twolayer.dec -n2
+---
+RETURNING THINGS INTO A FILE:
+use -o flag to do that
+EXAMPLE:
+---
+py -3 -m decenc decypher NoWay.dec -o NoWay-Decypher.txt ## Creates file NoWay-Decypher with decrypted contents of NoWay.dec
+---
+About layers:
+Layers is layers.
+Just use -nX flag, lol
+(-n2 for example, see above to see a small example)
+
+DECTools: they're just DECTools, just do the thing BRUH

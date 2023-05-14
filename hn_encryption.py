@@ -7,6 +7,15 @@ if sys.version_info < (3, 0):
 # General helper
 def debug(*args,**kwargs): print(*args,file=sys.stderr,**kwargs)
 
+# Exceptions (our guy refused to do some haha)
+class WrongPassword(Exception):
+    print('WRONG PASSWORD')
+    pass
+class PasswordRequired(Exception):
+    print('PASSWORD REQUIRED')
+    pass
+
+
 def intify(x):
     y = x&0xffffffff
     if y > 0x7fffffff: y -= 2**32
@@ -110,7 +119,6 @@ class DEC_ENC:
             if x: H.append(s+': {}'.format(x))
         add('Comment', self.comment)
         add('Signature', self.signature)
-        add('Extension', self.extension)
         return '\n'.join(H)
 
 # Decoding ways
@@ -136,9 +144,9 @@ def dec_msg_pass(dec, password):
         plain = decrypt(dec.cipher,i)
     else:
         if password == '':
-            raise Exception("A password is needed")
+            raise Exception(PasswordRequired)
         else:
-            raise Exception("Wrong password")
+            raise Exception(WrongPassword)
     return plain
 
 # User level stuff

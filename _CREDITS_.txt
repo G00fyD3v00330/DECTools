@@ -1,0 +1,5 @@
+def credits():
+	print("DECTools made by some_one")
+	print("Original DecEnc Module created by algmur")
+	print("bye :p")
+exit()
